@@ -1,6 +1,6 @@
 import express from "express";
-import { connection } from "./database/db.js";
-import router from "./routes/Route.js"
+import { connection } from "./server/database/db.js";
+import router from "./server/routes/Route.js"
 import cors from "cors";
 import bodyParser from "body-parser";
 const app = express();
@@ -10,7 +10,7 @@ app.use(cors());
 app.use("/user",router);
 
 
-const PORT = 8080;
+const PORT = 8000;
 app.listen(PORT,async (res,req)=>{
     try {
         await connection()
