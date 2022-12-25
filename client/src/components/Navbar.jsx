@@ -37,7 +37,7 @@ export const Navbar = () => {
 
   const handleData = (user) => {
 
-     fetch(`http://localhost:8080/user/add`, {
+     fetch(`https://erin-modern-millipede.cyclic.app/user/add`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -47,7 +47,7 @@ export const Navbar = () => {
   }
 
   const dleateData = ()=>{
-    fetch(`http://localhost:8080/user/all`, {
+    fetch(`https://erin-modern-millipede.cyclic.app/user/all`, {
       method: "DELETE"
     })
   //  getData()
