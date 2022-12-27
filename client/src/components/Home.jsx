@@ -30,7 +30,7 @@ React.useEffect(()=>{
 },[])
 
 const getData = ()=>{
-  fetch(`https://erin-modern-millipede.cyclic.app/user/all`)
+  fetch(`http://localhost:8000/user/all`)
   .then((res)=>res.json())
   .then((res)=>setUser(res))
 }

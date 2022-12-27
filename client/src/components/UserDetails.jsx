@@ -9,7 +9,7 @@ export const UserDetails = () => {
     }, [page])
 
     const getData = () => {
-        fetch(`https://erin-modern-millipede.cyclic.app/user/all`)
+        fetch(`http://localhost:8000/user/all`)
             .then((res) => res.json())
             .then((res) => setUser(res))
     }
@@ -20,18 +20,12 @@ export const UserDetails = () => {
             {
                 users[page] ? <div>
                 <h4>{users[page].name.first}</h4>
-
-                <h4>{users[page].location.city}</h4>
+               <h4>{users[page].location.city}</h4>
                 <h4>{users[page].gender}</h4>
             </div> : null
             }
           
-            {/* <div>
-                <h4>{users[page].name.first}</h4>
-
-                <h4>{users[page].location.city}</h4>
-                <h4>{users[page].gender}</h4>
-            </div> */}
+          
             <div>
                 <button onClick={() => setPage(page - 1)}>Previous</button>
                 <button onClick={() => setPage(page + 1)}>Next</button>
