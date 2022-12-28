@@ -21,7 +21,7 @@ export const Navbar = () => {
       alert("fetching already going on");
     }else{
       setFetching(true);
-      fetch(`https://randomuser.me/api/?results=10`)
+      fetch(`https://randomuser.me/api/?results=50`)
       .then((res) => {
           console.log(res)
           return res.json()
@@ -30,11 +30,9 @@ export const Navbar = () => {
         .then((res) => handleData(res.results))
         .catch((err)=>console.log(err))
         .finally(()=>setFetching(false))
+
     }
-   
   }
-
-
   const handleData = (user) => {
 
      fetch(`http://localhost:8000/user/add`, {
@@ -47,9 +45,17 @@ export const Navbar = () => {
   }
 
   const dleateData = ()=>{
-    fetch(`http://localhost:8000/user/all`, {
-      method: "DELETE"
-    })
+    if(fetching){
+      alert(`Delete is going on`)
+    }else{
+      setFetching(true)
+      fetch(`http://localhost:8000/user/all`, {
+        method: "DELETE"
+      })
+      .catch((err)=>console.log(err))
+      .finally(()=>setFetching(false))
+    }
+   
   
   }
 

@@ -3,8 +3,6 @@ import UserModal from "../schema/UserSchema.js"
 
 export const AddUser =async (req,res) => {
   const users = req.body
-  
-// console.log(users)
   try {
    const response = await UserModal.insertMany(users)
    res.status(201).send({message : "User Inserted successfully"})
@@ -26,10 +24,12 @@ export const getUser =async (req,res) => {
  
   export const deleatUser = async (request, response) => {
     try{
-        // await UserModal.users.drop()
          mongoose.connection.db.dropCollection('users',(err, result)=>{
-          if(err) console.log(err);
-          else response.status(201).json("User deleted Successfully");
+          if(err){
+            console.log(err);
+          } else{
+            response.status(201).json("User deleted Successfully");
+          } 
         })
         
     } catch (error){

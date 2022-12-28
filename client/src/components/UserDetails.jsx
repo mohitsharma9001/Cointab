@@ -3,7 +3,7 @@ import React from 'react'
 export const UserDetails = () => {
     const [users, setUser] = React.useState([])
     const [page, setPage] = React.useState(0)
-    console.log(users)
+ 
     React.useEffect(() => {
         getData()
     }, [page])
