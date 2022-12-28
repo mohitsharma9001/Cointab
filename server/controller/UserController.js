@@ -37,3 +37,14 @@ export const getUser =async (req,res) => {
     }
 }
 
+export const pagination =async (req,res) => {
+   try {
+    const PAGE_SIZE = 5
+  const page = parseInt(req.query.page || "0")
+  
+  const users = await UserModal.find({}).limit(PAGE_SIZE).skip(PAGE_SIZE * page)
+  res.json(users)
+} catch (e) {
+    console.log(e);
+}
+}
