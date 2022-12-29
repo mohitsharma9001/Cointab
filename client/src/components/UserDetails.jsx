@@ -30,7 +30,12 @@ export const UserDetails = () => {
             .then((res) => res.json())
             .then((res) => setUser(res))
     }
-
+const handleClick = () =>{
+    let filterByAge = users.filter((user)=>{
+        return user.gender == 'male'
+    })
+    setUser(filterByAge) 
+}
    
 
     return (
@@ -42,7 +47,7 @@ export const UserDetails = () => {
             <TableCell>Email</TableCell>
             <TableCell>Gender</TableCell>
             <TableCell>City</TableCell>
-            <button>Filter data by gender male</button>
+            <button onClick={handleClick}>Filter data by gender male</button>
           </THead>
           <TableBody>
          {

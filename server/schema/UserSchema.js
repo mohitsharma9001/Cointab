@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema({
     gender : String,
     email : String,
     location: Object,
-    
+    dob : Object,
 })
 
 

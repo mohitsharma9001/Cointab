@@ -15,6 +15,7 @@ export const AddUser =async (req,res) => {
 export const getUser =async (req,res) => {
     try{
         const users = await UserModal.find({});
+        
         res.status(200).json(users);
     }catch( error ){
         res.status(404).json({ message: error.message })

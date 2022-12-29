@@ -23,6 +23,7 @@ const TRow = styled(TableRow)`
 
 export const Home = () => {
  const [user,setUser] = React.useState([])
+ const [count,setCount] = React.useState(0)
  console.log(user)
 
 React.useEffect(()=>{
@@ -34,6 +35,16 @@ const getData = ()=>{
   .then((res)=>res.json())
   .then((res)=>setUser(res))
 }
+
+
+const handleClick = ()=>{
+  let filterAge = user.filter((userAge)=>{
+    return userAge.dob.age < 25
+  })
+  // setUser(filterAge.length)
+  console.log(filterAge.length)
+}
+
   return (
     <div>
          <StyledTable>
@@ -42,7 +53,8 @@ const getData = ()=>{
             <TableCell>Email</TableCell>
             <TableCell>Gender</TableCell>
             <TableCell>City</TableCell>
-            
+            <TableCell>Age</TableCell>
+            <button onClick={handleClick}>Age</button>
           </THead>
           <TableBody>
          {
@@ -53,7 +65,7 @@ const getData = ()=>{
                      <TableCell>{data.email}</TableCell>
                      <TableCell>{data.gender}</TableCell>
                      <TableCell>{data.location.city}</TableCell>
-                   
+                     <TableCell>{data.dob.age}</TableCell>
             </TRow>
           })
          }
