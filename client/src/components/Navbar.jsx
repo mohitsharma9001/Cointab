@@ -3,7 +3,7 @@ import { AppBar, Toolbar, styled, } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
-  const [fetching,setFetching] = React.useState(false);
+  const [fetching, setFetching] = React.useState(false);
 
   const Navbar = styled(AppBar)`
     background : #111111;
@@ -17,25 +17,25 @@ export const Navbar = () => {
 
 
   const getUserData = () => {
-    if(fetching){
+    if (fetching) {
       alert("fetching already going on");
-    }else{
+    } else {
       setFetching(true);
       fetch(`https://randomuser.me/api/?results=50`)
-      .then((res) => {
+        .then((res) => {
           console.log(res)
           return res.json()
         })
-  
+
         .then((res) => handleData(res.results))
-        .catch((err)=>console.log(err))
-        .finally(()=>setFetching(false))
+        .catch((err) => console.log(err))
+        .finally(() => setFetching(false))
 
     }
   }
   const handleData = (user) => {
 
-     fetch(`http://localhost:8000/user/add`, {
+    fetch(`http://localhost:8000/user/add`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -44,19 +44,19 @@ export const Navbar = () => {
     })
   }
 
-  const dleateData = ()=>{
-    if(fetching){
+  const dleateData = () => {
+    if (fetching) {
       alert(`Delete is going on`)
-    }else{
+    } else {
       setFetching(true)
       fetch(`http://localhost:8000/user/all`, {
         method: "DELETE"
       })
-      .catch((err)=>console.log(err))
-      .finally(()=>setFetching(false))
+        .catch((err) => console.log(err))
+        .finally(() => setFetching(false))
     }
-   
-  
+
+
   }
 
 
