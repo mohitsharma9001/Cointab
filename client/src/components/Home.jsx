@@ -37,13 +37,13 @@ export const Home = () => {
   }
 
 
-  const handleClick = () => {
-    let filterAge = user.filter((userAge) => {
-      return userAge.dob.age < 25
-    })
-    setUser(filterAge)
-    console.log(filterAge.length)
-  }
+  // const handleClick = () => {
+  //   let filterAge = user.filter((userAge) => {
+  //     return userAge.dob.age < 25
+  //   })
+  //   setUser(filterAge)
+  //   console.log(filterAge.length)
+  // }
 
   return (
     <div>
